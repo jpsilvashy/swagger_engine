@@ -6,11 +6,13 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    minitest (5.9.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  minitest
   swagger_engine!
 
 BUNDLED WITH

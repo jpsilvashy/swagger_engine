@@ -1,7 +1,21 @@
-<ul>
-  <% @json_files.each_key do |k| %>
-    <li>
-      <%= link_to k, swagger_path(k) %>
-    </li>
-  <% end %>
-</ul>
+
+
+<div>&nbsp;</div>
+
+<div id="swagger-ui-container" class="swagger-ui-wrap">
+  <div class="info" id="api_info">
+    <div class="info_title">APIs</div>
+    <div class="info_description markdown"><p></p></div>
+  </div>
+
+  <ul>
+    <% @swagger_files.each_key do |k|%>
+    <% swagger = SwaggerEngine::Swagger.find(k) %>
+        <li>
+          <h2><%= link_to "#{swagger.title} (#{swagger.version})", swagger_path(k) %></h2>
+          <p><%= swagger.description %></p>
+        </li>
+    <% end %>
+  </ul>
+  
+</div>

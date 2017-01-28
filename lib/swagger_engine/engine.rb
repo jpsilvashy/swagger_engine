@@ -1,25 +1,19 @@
 module SwaggerEngine
   class Engine < ::Rails::Engine
     isolate_namespace SwaggerEngine
-
-    #https://gist.github.com/parndt/11381872
-=begin
-    initializer "swagger_engine.assets.precompile", group: :all do |app|
-      app.config.assets.precompile += ['swagger_engine/print.css', 'swagger_engine/reset.css']
-    end
-=end
-    config.to_prepare do
-      Rails.application.config.assets.precompile += ['swagger_engine/print.css', 'swagger_engine/reset.css']
-    end
-
+    config.assets.paths << config.root.join('vendor/assets')
+    config.assets.precompile << %r{ps_spyder/.*-bundle\..*(?:js|js.map|css)\z}
+    config.assets.precompile << %r{ps_spyder/.*\.(?:gif|png|jpg)\z}
+    config.assets.precompile << %r{\.(?:svg|eot|woff|woff2|ttf|otf)\z} # fonts
   end
 
   class Configuration
-    #[{ default: "swagger.json" }]
-    attr_accessor :json_files
+    attr_accessor :swaggers
+    attr_accessor :references
     attr_accessor :admin_username
     attr_accessor :admin_password
   end
+  
   class << self
     attr_writer :configuration
   end
