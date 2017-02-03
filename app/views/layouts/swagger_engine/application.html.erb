@@ -6,27 +6,11 @@
   <%= favicon_link_tag 'swagger_engine/swagger_ui/images/favicon-32x32.png', sizes: '32x32', type: 'image/png' %>
   <%= favicon_link_tag 'swagger_engine/swagger_ui/images/favicon-16x16.png', sizes: '16x16', type: 'image/png' %>
 
-  <%= stylesheet_link_tag 'swagger_engine/swagger_ui/css/typography' %>
-  <%= stylesheet_link_tag 'swagger_engine/swagger_ui/css/reset' %>
-  <%= stylesheet_link_tag 'swagger_engine/swagger_ui/css/screen' %>
-  <%= stylesheet_link_tag 'swagger_engine/swagger_ui/css/reset', media: 'print' %>
-  <%= stylesheet_link_tag 'swagger_engine/swagger_ui/css/print', media: 'print' %>
+  <%= stylesheet_link_tag 'swagger_engine/application' %>
+  <%= stylesheet_link_tag 'swagger_engine/print', media: 'print' %>
 
 
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/object-assign-pollyfill.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/jquery-1.8.0.min.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/jquery.slideto.min.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/jquery.wiggle.min.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/jquery.ba-bbq.min.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/handlebars-4.0.5.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/lodash.min.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/backbone-min.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/swagger-ui.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/highlight.9.1.0.pack.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/highlight.9.1.0.pack_extended.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/jsoneditor.min.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/marked.js' %>
-  <%= javascript_include_tag 'swagger_engine/swagger_ui/lib/swagger-oauth.js' %>
+  <%= javascript_include_tag 'swagger_engine/application' %>
 
   <!-- Some basic translations -->
   <!-- <script src='lang/translator.js' type='text/javascript'></script> -->

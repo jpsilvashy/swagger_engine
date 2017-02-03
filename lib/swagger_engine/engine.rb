@@ -1,9 +1,11 @@
 module SwaggerEngine
   class Engine < ::Rails::Engine
     isolate_namespace SwaggerEngine
+    config.assets.paths << config.root.join('app/assets')
     config.assets.paths << config.root.join('vendor/assets')
-    config.assets.precompile << %r{ps_spyder/.*-bundle\..*(?:js|js.map|css)\z}
-    config.assets.precompile << %r{ps_spyder/.*\.(?:gif|png|jpg)\z}
+    
+    config.assets.precompile << %r{swagger_engine/.*\.(?:js|js.map|css)\z}
+    config.assets.precompile += Dir.glob(config.root.join('vendor/assets/swagger_engine/swagger_ui/images/*'))
     config.assets.precompile << %r{\.(?:svg|eot|woff|woff2|ttf|otf)\z} # fonts
   end
 
@@ -26,4 +28,4 @@ module SwaggerEngine
   def configure
     yield(configuration)
   end
- end
+end
