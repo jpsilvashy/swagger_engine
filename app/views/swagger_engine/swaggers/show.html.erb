@@ -22,6 +22,10 @@
               supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
               validatorUrl: false,
               onComplete: function(swaggerApi, swaggerUi){
+                  if (typeof(extendSwaggerUI) === 'function') {
+                    extendSwaggerUI();
+                  }
+
                   if(typeof initOAuth == "function") {
                       initOAuth({
                           clientId: "your-client-id",
@@ -59,3 +63,5 @@
 
   <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
   <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+
+  <%= render partial: 'extend_show' if lookup_context.find_all('swagger_engine/swaggers/_extend_show').any? %>
